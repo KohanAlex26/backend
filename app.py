@@ -5,7 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='../../runs/train/exp5/weights/best.pt', force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='./best.pt', force_reload=True)
 
 @app.route('/do_nothing')
 def do_nothing():
