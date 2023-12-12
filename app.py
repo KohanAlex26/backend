@@ -5,8 +5,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='./best.pt', force_reload=True)
-
 @app.route('/do_nothing')
 def do_nothing():
     response = jsonify(message="This Flask backend does nothing!")
@@ -26,4 +24,5 @@ def detect_traffic_sign_endpoint():
 
 
 if __name__ == '__main__':
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='./best.pt', force_reload=True)
     app.run(debug=True)
